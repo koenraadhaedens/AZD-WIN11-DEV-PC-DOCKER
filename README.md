@@ -42,6 +42,6 @@ azd provision
 ```
 
 ### Conclusion
-Once the above steps are completed, your developer PC will be equipped with all the necessary tools to start your development projects. Happy coding!
+Once the above steps are completed (+/- 15 minutes), your developer PC will be equipped with all the necessary tools to start your development projects. Happy coding!
 ```
 
