@@ -30,11 +30,9 @@ resource rg 'Microsoft.Resources/resourceGroups@2022-09-01' = {
 
 module hvhost './vm.bicep' = {
   scope: rg
-  name: 'hvhost'
+  name: 'devpc'
   params: {
-    environmentName: environmentName
     location: location
-    tags: tags
     winVmDnsPrefix: 'dns${uniqueString(subscription().subscriptionId, 'rg-${environmentName}')}hvhostvm'
     winVmUser: 'adminuser'
     winVmPassword: winVMPassword //no value specified, so user will get prompted for it during deployment
