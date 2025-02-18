@@ -1,26 +1,26 @@
 targetScope = 'resourceGroup'
 
-@description('The Windows version for Windows hyperv-host VM.')
+@description('The Windows version for defpc.')
 param windowsOSVersion string = 'win11-24h2-pro'
 
 @description('Size for Windows hyper-vhost VM')
 param winVmSize string = 'Standard_B2ms'
 
-@description('Username for Windows hyperv-host VM')
+@description('Username for devpcM')
 param winVmUser string
 
-@description('Password for Windows hyperv-host VM. The password must be between 6-72 characters long and must satisfy at least 3 of password complexity requirements from the following: 1) Contains an uppercase character 2) Contains a lowercase character 3) Contains a numeric digit 4) Contains a special character 5) Control characters are not allowed')
+@description('Password for Windows devpc VM. The password must be between 6-72 characters long and must satisfy at least 3 of password complexity requirements from the following: 1) Contains an uppercase character 2) Contains a lowercase character 3) Contains a numeric digit 4) Contains a special character 5) Control characters are not allowed')
 @secure()
 param winVmPassword string
 
-@description('DNS Label for Windows hyperv-host VM.')
+@description('DNS Label for Windows devpc VM.')
 param winVmDnsPrefix string
 
 @description('Location for all resources.')
 param location string = resourceGroup().location
 
-var hostvnetName = 'hostvnet'
-var mgmtSubnetName = 'hvhostSubnet'
+var hostvnetName = 'devpcvnet'
+var mgmtSubnetName = 'devpcSubnet'
 var mgmtSubnetPrefix = '10.29.10.0/24'
 var hostvnetPrefix = '10.29.0.0/16'
 var winhvhostname = 'devpc'
@@ -61,21 +61,14 @@ resource winhvhost 'Microsoft.Compute/virtualMachines@2019-12-01' = {
     }
     storageProfile: {
       imageReference: {
-        publisher: 'MicrosoftWindowsServer'
-        offer: 'WindowsServer'
+        publisher: 'MicrosoftWindowsDesktop'
+        offer: 'Windows-11'
         sku: windowsOSVersion
         version: 'latest'
       }
       osDisk: {
         createOption: 'FromImage'
       }
-      dataDisks: [
-        {
-          diskSizeGB: 20
-          lun: 0
-          createOption: 'Empty'
-        }
-      ]
     }
     osProfile: {
       computerName: winhvhostname
