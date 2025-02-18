@@ -15,6 +15,14 @@ This script is designed to deploy a developer PC with all the essential tools re
 ### Installation Instructions
 Follow these steps to deploy the developer PC with the necessary tools:
 
+### Prerequisites
+
+Before proceeding on local pc, ensure you have one of the following environment set up:
+- [Azure Developer CLI (AZD)](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd)
+
+You can also use Azure Cloud Shell where AZD is preinstalled
+- [Azure Cloud Shell](https://shell.azure.com)
+
 #### Step 1: Clone the Repository
 Run the following command to clone the repository:
 ```bash
