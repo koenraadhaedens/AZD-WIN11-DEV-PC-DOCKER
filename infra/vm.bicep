@@ -295,12 +295,11 @@ resource customScriptExtension 'Microsoft.Compute/virtualMachines/extensions@202
     typeHandlerVersion: '1.10'
     settings: {
       fileUris: [
-        'https://raw.githubusercontent.com/koenraadhaedens/azd-nestedhv-dc-rtr/refs/heads/main/infra/customscript.ps1'
+        'https://raw.githubusercontent.com/koenraadhaedens/AZD-WIN11-DEV-PC-DOCKER/refs/heads/main/infra/devpc.ps1'
       ]
-      commandToExecute: 'powershell -ExecutionPolicy Unrestricted -File customscript.ps1'
+      commandToExecute: 'powershell -ExecutionPolicy Unrestricted -File devpc.ps1'
     }
   }
 }
 
-output Jumphost_VM_IP_address string = winhvhostPublicIp.properties.ipAddress
 output winVmUser string = winVmUser
