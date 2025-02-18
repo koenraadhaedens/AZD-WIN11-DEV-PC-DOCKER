@@ -2,8 +2,8 @@ $UserName = "hacker"
 
 Enable-WindowsOptionalFeature -Online -NoRestart -FeatureName Microsoft-Windows-Subsystem-Linux
 Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -NoRestart
-Invoke-WebRequest https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi -OutFile c:\\wsl_update_x64.msi -UseBasicParsing
-Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile c:\\ubuntu2004.appx
+# Invoke-WebRequest https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi -OutFile c:\\wsl_update_x64.msi -UseBasicParsing
+# Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile c:\\ubuntu2004.appx
 
 
 
@@ -19,13 +19,13 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All -NoRes
 Enable-WindowsOptionalFeature -Online -FeatureName Containers -All -NoRestart
 
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco install python docker-desktop git vscode azure-cli kubernetes-helm kubernetes-cli vscode-kubernetes-tools -y
+choco install azure-dev dotnetcore-sdk python docker-desktop git vscode azure-cli kubernetes-helm kubernetes-cli vscode-kubernetes-tools -y
 
 
 
 $trig = New-ScheduledTaskTrigger -AtLogOn 
 $task = New-ScheduledTaskAction -Execute powershell.exe -Argument "-File c:\config2.ps1" 
-Register-ScheduledTask -TaskName install-ubuntu -Force -Action $task -Trigger $trig -User $UserName
+# Register-ScheduledTask -TaskName install-ubuntu -Force -Action $task -Trigger $trig -User $UserName
 
 
 
