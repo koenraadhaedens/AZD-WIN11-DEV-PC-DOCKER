@@ -1,10 +1,10 @@
 targetScope = 'resourceGroup'
 
 @description('The Windows version for Windows hyperv-host VM.')
-param windowsOSVersion string = '2022-Datacenter'
+param windowsOSVersion string = 'win11-24h2-pro'
 
 @description('Size for Windows hyper-vhost VM')
-param winVmSize string = 'Standard_D8s_v3'
+param winVmSize string = 'Standard_B2ms'
 
 @description('Username for Windows hyperv-host VM')
 param winVmUser string
