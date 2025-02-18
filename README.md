@@ -9,8 +9,11 @@ This script is designed to deploy a developer PC with all the essential tools re
 - Python
 - Node.js
 - Visual Studio Code (VSCode)
-- Helm
-- Docker Desktop
+- Helm (under construction)
+- Git
+- Azure CLI
+- Azure devloper CLI AZD
+- Docker Desktop (under construction)
 
 ### Installation Instructions
 Follow these steps to deploy the developer PC with the necessary tools:
