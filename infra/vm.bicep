@@ -4,7 +4,7 @@ targetScope = 'resourceGroup'
 param windowsOSVersion string = 'win11-24h2-pro'
 
 @description('Size for Windows hyper-vhost VM')
-param winVmSize string = 'Standard_B2ms'
+param winVmSize string = 'Standard_D2s_v3'
 
 @description('Username for devpcM')
 param winVmUser string
