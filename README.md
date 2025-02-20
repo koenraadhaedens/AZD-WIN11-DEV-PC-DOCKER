@@ -45,7 +45,7 @@ azd provision
 ```
 
 ### Step 4: Connect to DevPc
-Once the above steps are completed (+/- 15 minutes), your developer PC will be equipped with all the necessary tools to start your development projects
+Once the above steps are completed (+/- 15 minutes), your developer PC will be equipped with all the necessary tools to start your demo development projects
 
 by default RDP port will be closed. If you have JIT just click the configure button, otherwise add the nsg rule manualy
 
