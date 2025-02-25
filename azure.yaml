@@ -1,8 +1,10 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
 
-name: azd-devpc
+name: tdd-azd-devpc
 metadata:
-  template: azd-devpc
+  template: tdd-azd-devpc@0.0.1-beta
+infra:
+   provider: "bicep"
 
 hooks:
   postprovision:
