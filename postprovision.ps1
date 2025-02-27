@@ -13,5 +13,6 @@ $deploymentData = @{
   } | ConvertTo-Json -Depth 10
 
 Invoke-RestMethod -Uri $webhookUrl -Method Post -Body $deploymentData -ContentType "application/json"
+Write-Output $environmentName
 Write-Output "Stats Tracked"
 
