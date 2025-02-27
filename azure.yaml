@@ -3,7 +3,8 @@
 name: tdd-azd-devpc
 metadata:
   template: tdd-azd-devpc@0.0.1-beta
-
+infra:
+   provider: "bicep"
 
 hooks:
   postprovision:
