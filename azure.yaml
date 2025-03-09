@@ -8,7 +8,15 @@ infra:
 
 hooks:
   postprovision:
-    shell: pwsh
-    run: ./postprovision.ps1
-    continueOnError: false
-    interactive: true
+    windows:
+      shell: pwsh
+      run: ./scripts/postprovision.ps1
+      interactive: true
+      continueOnError: false
+    posix:
+      shell: sh
+      run: |
+        chmod +x ./scripts/postprovision.sh || echo "chmod failed, running anyway..."
+        ./scripts/postprovision.sh
+      interactive: true
+      continueOnError: false
