@@ -8,7 +8,7 @@ $UserName = "adminuser"
 
 
 
-# Set-Content -Path c:\\config2.ps1 -Value "`$wsh = New-Object -ComObject Wscript.Shell`r`n`$wsh.Popup('Still Installing some binarys, Press OK to Continue, PC will restart when done',10,'Hang on for a sec')`r`nmsiexec /i c:\wsl_update_x64.msi /qn`r`nsleep 5`r`nwsl --set-default-version 2`r`nAdd-AppxPackage c:\\ubuntu2004.appx`r`nubuntu2004.exe install --root`r`nDisable-ScheduledTask -TaskName install-ubuntu`r`n`$trig = New-ScheduledTaskTrigger -AtLogOn`r`n`$task = New-ScheduledTaskAction -Execute 'C:\Program Files\Docker\Docker\Docker Desktop.exe'`r`nRegister-ScheduledTask -TaskName start-docker -Force -Action `$task -Trigger `$trig -User `$env:USERNAME`r`nchoco install vscode-kubernetes-tools vscode-docker -y --force`r`nRestart-Computer -Force"
+Set-Content -Path c:\\config2.ps1 -Value "`$wsh = New-Object -ComObject Wscript.Shell`r`n`$wsh.Popup('Still Installing some binarys, Press OK to Continue, PC will restart when done',10,'Hang on for a sec')`r`nmsiexec /i c:\wsl_update_x64.msi /qn`r`nsleep 5`r`nwsl --set-default-version 2`r`nAdd-AppxPackage c:\\ubuntu2004.appx`r`nubuntu2004.exe install --root`r`nDisable-ScheduledTask -TaskName install-ubuntu`r`n`$trig = New-ScheduledTaskTrigger -AtLogOn`r`n`$task = New-ScheduledTaskAction -Execute 'C:\Program Files\Docker\Docker\Docker Desktop.exe'`r`nRegister-ScheduledTask -TaskName start-docker -Force -Action `$task -Trigger `$trig -User `$env:USERNAME`r`nchoco install vscode-kubernetes-tools vscode-docker -y --force`r`nRestart-Computer -Force"
 
 
 # New-LocalGroup -Name docker-users -Description "Users of Docker Desktop"
