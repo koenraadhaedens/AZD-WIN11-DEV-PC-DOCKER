@@ -4,7 +4,9 @@
 ## Developer PC Deployment Script
 
 ### Description
-This script is designed to deploy a developer PC with all the essential tools required for modern development. The tools that will be installed include:
+This script is designed to deploy a developer PC with all the essential tools required 
+This deployment will take approximately 22 minutes. If you notice anything not working or have an idea, please report an issue here on GitHub.
+for modern development. The tools that will be installed include:
 - .NET SDK
 - Python
 - Node.js

@@ -1,11 +1,27 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
 
-name: azd-devpc
-
+name: tdd-azd-devpc
+metadata:
+  template: tdd-azd-devpc@0.0.1-beta
+infra:
+   provider: "bicep"
 
 hooks:
   postprovision:
-    shell: pwsh
-    run: ./postprovision.ps1
-    continueOnError: false
-    interactive: true
+    windows:
+      shell: pwsh
+      run: |
+        $scriptPath = "$(Get-Location)\scripts\postprovision.ps1"
+        if (Test-Path $scriptPath) {
+          & $scriptPath
+        } else {
+          Write-Host "Script not found: $scriptPath"
+          exit 1
+        }
+    posix:
+      shell: sh
+      run: |
+        chmod +x ./scripts/postprovision.sh || echo "chmod failed, running anyway..."
+        ./scripts/postprovision.sh
+      interactive: true
+      continueOnError: false
