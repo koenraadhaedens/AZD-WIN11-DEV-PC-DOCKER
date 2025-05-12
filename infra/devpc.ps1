@@ -1,6 +1,9 @@
 $UserName = "adminuser"
-
-# Enable-WindowsOptionalFeature -Online -NoRestart -FeatureName Microsoft-Windows-Subsystem-Linux
-# Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -NoRestart
-# Invoke-WebRequest https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi -OutFile c:\\wsl_update_x64.msi -UseBasicParsing
-
+$dockerUrl = "https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe"
+$installerPath = "$env:TEMP\DockerDesktopInstaller1.exe"
+Start-BitsTransfer -Source $dockerUrl -Destination $installerPath
+# Install silently
+Start-Process -FilePath $installerPath -ArgumentList "install --quiet --norestart" -Wait -NoNewWindow
+# Optional: Add current user to docker-users group
+$CurrentUser = "$env:USERDOMAIN\$env:USERNAME"
+Add-LocalGroupMember -Group "docker-users" -Member $CurrentUser
