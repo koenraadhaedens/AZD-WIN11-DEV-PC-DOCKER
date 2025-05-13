@@ -16,7 +16,14 @@ try {
 }
 
 $dockerUrl = "https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe"
-$installerPath = "$env:TEMP\DockerDesktopInstaller1.exe"
+$installerPath = "C:\TEMP\DockerDesktopInstaller1.exe"
+
+try {
+New-Item -ItemType Directory -Path "C:\TEMP" -Force
+} catch {
+    Write-Host "Failed to create temp folder" -ForegroundColor Red
+}
+
 
 try {
     Start-BitsTransfer -Source $dockerUrl -Destination $installerPath
